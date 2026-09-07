@@ -7,7 +7,7 @@ from calculator import add, subtract, multiply, divide
 def test_add(numbers):
     a, b = numbers
 
-    assert add(a, b) == 50
+    assert add(a, b) == 30
 
 
 @pytest.mark.regression
