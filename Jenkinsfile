@@ -4,22 +4,32 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Check Python') {
             steps {
-                checkout scm
+                bat '"C:\\Users\\Dell\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" --version'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat '"C:\\Users\\Dell\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'python -m pytest -v'
+                bat '"C:\\Users\\Dell\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pytest -v'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'All tests passed successfully.'
+        }
+
+        failure {
+            echo 'Pipeline failed.'
         }
     }
 }
