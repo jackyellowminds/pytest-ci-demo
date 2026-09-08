@@ -25,7 +25,7 @@ pipeline {
     steps {
         bat 'docker --version'
     }
-    }
+    
 
     post {
         success {
