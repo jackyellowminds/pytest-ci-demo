@@ -27,11 +27,17 @@ pipeline {
                 bat 'docker --version'
             }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                bat 'docker build -t calculator-microservice:1.0 .'
+            }
+        }
     }
 
     post {
         success {
-            echo 'Tests passed and Docker is available.'
+            echo 'Tests passed and Docker image built successfully.'
         }
 
         failure {
