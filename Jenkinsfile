@@ -21,6 +21,10 @@ pipeline {
                 bat '"C:\\Users\\Dell\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pytest -v'
             }
         }
+        stage('Check Docker') {
+    steps {
+        bat 'docker --version'
+    }
     }
 
     post {
